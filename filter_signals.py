@@ -1,4 +1,5 @@
-# This program filters the samples with FIR filter signals.
+# This program creates FIR filter signals from the the recordings in folder
+# "recordings".
 
 # Main libraries
 import numpy as np
@@ -44,7 +45,7 @@ class Filter_Sample():
         # Read files
         print('\nReading sample file \t"%s"'%(sample_path))
         x_sample, fs_sample =  self.read_audio_file(sample_path)
-        print('\nReading filter file \t"%s"'%(filter_path))
+        print('Reading filter file \t"%s"'%(filter_path))
         x_filter, fs_filter =  self.read_audio_file(filter_path)
         # Normalize files
         x_sample = self.normalize_audio(x_sample)
@@ -59,7 +60,7 @@ class Filter_Sample():
         x = self.normalize_audio(x)*.9
 
         # Store filtered sample
-        print('Writing filtered sample to \t"%s"'%(output_path))
+        print('Writing filtered sample\t"%s"'%(output_path))
         self.write_audio_file(output_path, x, fs)
         self.filtered_sample = x
         self.fs = fs
@@ -76,6 +77,7 @@ class Filter_Sample():
         fs, x = wavfile.read(filepath)
         if np.size(x[1]) == 2:  # merge stereo to mono
             x = np.array(x[:,0]+x[:,1])
+        x = np.array(x, dtype = 'float32')
         return x, fs
 
     def write_audio_file(self, filepath, x, fs):
@@ -88,16 +90,19 @@ class Filter_Sample():
         if not os.path.exists(folderpath):
             os.makedirs(folderpath)
         x = np.array(x, dtype='float32')    # scipy.io.wavfile doesnt support 64 bit float
+        x = self.normalize_audio(x)*.9
         wavfile.write(filepath, fs, x)
+        # print('x:', max(x), type(x[0]), '\n', x)
+
 
     def fir_filter(self, x, h):
         """This function filters according to
             y_n = sum_{k=0}^{M-1} h_k * x(n-k)
         """
-        # alt 1. Numpy convolve
+        # alt 1. Numpy convolve     (fastest)
         return np.convolve(x,h)
 
-        # alt 2. Numpy dot produkt
+        # alt 2. Numpy dot produkt  (slower)
         y = np.zeros(len(x))
         M = len(h)
         x = np.concatenate((np.zeros(M), x, np.zeros(M))) # Add zeroes before x for convolutions
@@ -107,7 +112,7 @@ class Filter_Sample():
         return(y)
 
 
-        # alt 3. Nestled for loops
+        # alt 3. Nestled for loops  (slowest)
         y = np.zeros(len(x))
         x = np.concatenate((np.zeros(len(h)), x)) # Add zeroes before x for convolutions
         for n in range(len(h),len(x)):
