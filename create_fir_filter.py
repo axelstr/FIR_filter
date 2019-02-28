@@ -67,12 +67,32 @@ class Create_Filter():
             plot_path = filter_filepath[:-4]+'.png'
             print('Plotting results to \t"%s"'%(plot_path))
             t = np.linspace(-dur_silent,-dur_silent+len(x)/fs,len(x))
-            plt.plot(t,x,
+
+            # fft
+            n = len(x) # length of the signal
+            k = np.arange(n)
+            T = n/fs
+            frq = k/T # two sides frequency range
+            frq = frq[range(n//2)] # one side frequency range
+
+            X = np.fft.fft(x)/n # fft computing and normalization
+            X = X[range(n//2)]
+            # X = np.log(X)
+            X = X/np.max(np.abs(X))
+
+            fig, ax = plt.subplots(2, 1)
+            ax[0].plot(t,x,
                     color = 'k',
-                    linewidth = 1)
-            plt.xlabel('time / [ms]')
-            plt.ylabel('amplitude')
-            plt.title('FIR-filter generated from %s with duration %s'%(filename,dur_filter))
+                    linewidth = .5)
+            ax[0].set_xlabel('Time / [ms]')
+            ax[0].set_ylabel('Amplitude')
+            # ax.title('FIR-filter generated from %s with duration %s'%(filename,dur_filter))
+            ax[1].semilogy(frq,abs(X),'r',linewidth=.5) # plotting the spectrum
+            ax[1].set_xlabel('Freq (Hz)')
+            ax[1].set_ylabel('|Y(freq)|')
+            ax[1].set_xlim(0,5000)
+            fig.suptitle('Filter generated from %s'%(filename))
+            plt.tight_layout()
             plt.savefig(plot_path, dpi = 300)
             plt.cla()
 
