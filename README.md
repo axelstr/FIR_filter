@@ -6,6 +6,11 @@ The primary use of this program is to create an FIR-filter to give an electric g
 
 This program is under the [MIT License](https://en.wikipedia.org/wiki/MIT_License), however since it is a school project I would apprecieate if you didn't claim to have written the program yourself.
 
+##### Examples
+
+Eight plot of FIR-filters from eight different impulse responses when striking the bridge of an acoustic guitar.
+![impulse responses](impulse_responses.gif)
+
 ## Using FIR filter program
 
 ### Installation
@@ -39,7 +44,7 @@ The recordings could be in stereo or mono. Mono is prefered since the two channe
 2. Generate FIR-filters.
    1. In the directory `impulse_responses` place the recorded impulse resonses.
    2. Run the program `create_fir_filter.py` inside the directory above. The prompt will now show you the impulse response recordings it has found. Enter the desired duration of the FIR filters in ms. The recomended duration for an acoustic guitar is *150  ms​*.
-   3. The generated filters will be stored as `.wav` files in a new directory named `FIR_filter` together with corresponding `.png` files that show the plot of the FIR-singal.
+   3. The generated filters will be stored as `.wav` files in a new directory named `FIR_filter` together with corresponding `.png` files that show the plot of the FIR-singal. 
 3. Filter the samples.
    1. In the directory `samples` place the recorded samples.
    2. Run the program `filter_samples.py` inside the directory above. 
