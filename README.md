@@ -4,14 +4,14 @@ This program generates [FIR-filters](https://en.wikipedia.org/wiki/Finite_impuls
 
 The primary use of this program is to create an FIR-filter to give an electric guitar sample the timbre of an acoustic guitar. However, the program can be used to filter any sample with any impulse function.
 
-This program is under the [MIT License](https://en.wikipedia.org/wiki/MIT_License), however since it is a school project I would apprecieate if you didn't claim to have written the program yourself.
+This program is under the [MIT License](https://en.wikipedia.org/wiki/MIT_License).
 
-##### Examples
+## Examples
 
-Eight plot of FIR-filters from eight different impulse responses when striking the bridge of an acoustic guitar.
+Eight impulse response recordings were made when a guitar was struck on the bridge. The following FIR-filters were constructed from the recordings with the `create_fir_filter.py` program.
 ![impulse responses](impulse_responses.gif)
 
-## Using FIR filter program
+## Using the FIR filter program
 
 ### Installation
 
