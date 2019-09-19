@@ -11,7 +11,7 @@ This program is under the [MIT License](https://en.wikipedia.org/wiki/MIT_Licens
 Eight impulse response recordings were made when a guitar was struck on the bridge. The following FIR-filters were constructed from the recordings with the `create_fir_filter.py` program.
 ![impulse responses](impulse_responses.gif)
 
-The file [electric_guitar_chords.wav](https://github.com/axelstr/FIR_filter/blob/master/electric_guitar_chords.wav) is a direct recording of an electric guitar. With this program this signal is filtered to sound as an acoustic guitar. The result is the file (filtered_electric_guitar_chords.wav)[https://github.com/axelstr/FIR_filter/blob/master/filtered_electric_guitar_chords.wav].
+The file [electric_guitar_chords.wav](https://github.com/axelstr/FIR_filter/blob/master/electric_guitar_chords.wav) is a direct recording of an electric guitar. With this program this signal is filtered to sound as an acoustic guitar. The result is the file [filtered_electric_guitar_chords.wav](https://github.com/axelstr/FIR_filter/blob/master/filtered_electric_guitar_chords.wav).
 
 ## Using the FIR filter program
 
