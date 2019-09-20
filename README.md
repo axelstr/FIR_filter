@@ -8,7 +8,7 @@ This program is under the [MIT License](https://en.wikipedia.org/wiki/MIT_Licens
 
 ## Examples
 
-Eight impulse response recordings were made when a guitar was struck on the bridge. The following FIR-filters were constructed from the recordings with the `create_fir_filter.py` program.
+Eight impulse responses were recorded when a guitar was struck with an impulse hammer. The following FIR-filters were constructed from the recordings with the `create_fir_filter.py` program. See [Optimal_impulse_response_recording_methods_to_emulate_an_acoustic_guitar.pdf](https://github.com/axelstr/FIR_filter/blob/master/Optimal_impulse_response_recording_methods_to_emulate_an_acoustic_guitar.pdf) for the report.
 ![impulse responses](impulse_responses.gif)
 
 The file [electric_guitar_chords.wav](https://github.com/axelstr/FIR_filter/blob/master/electric_guitar_chords.wav) is a direct recording of an electric guitar. With this program this signal is filtered to sound as an acoustic guitar. The result is the file [filtered_electric_guitar_chords.wav](https://github.com/axelstr/FIR_filter/blob/master/filtered_electric_guitar_chords.wav). **These files are best listened to at [this SoundCloud playlist](https://soundcloud.com/xeltrmberg/sets/fir_filter-examples).**
