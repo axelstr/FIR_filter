@@ -1,8 +1,8 @@
 # FIR filter
 
-This program generates [FIR-filters](https://en.wikipedia.org/wiki/Finite_impulse_response) from recorded *impulse reponses* and then filters given *samples* with the filters.
+This program generates [FIR-filters](https://en.wikipedia.org/wiki/Finite_impulse_response) from recorded *impulse reponses* and then uses them to filters given *samples*.
 
-The primary use of this program is to create an FIR-filter to give an electric guitar sample the timbre of an acoustic guitar. However, the program can be used to filter any sample with any impulse function.
+The primary use of this program is to create an FIR-filter to give an electric guitar sample the timbre of an acoustic guitar. However, the program can be used to filter any sample with any impulse recording.
 
 This program is under the [MIT License](https://en.wikipedia.org/wiki/MIT_License).
 
